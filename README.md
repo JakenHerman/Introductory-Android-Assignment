@@ -1,4 +1,6 @@
 Introductory Android Assignment
 ===============================================
 
-Arbibo
+Arbibo introductory android assignment
+
+-@JakenFTF
