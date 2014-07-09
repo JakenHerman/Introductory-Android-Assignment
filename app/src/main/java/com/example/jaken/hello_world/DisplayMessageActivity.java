@@ -63,8 +63,11 @@ public class DisplayMessageActivity extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+<<<<<<< HEAD
 
         //cannot resolve symbol mainMessage - how to call MainActivity.java?
+=======
+>>>>>>> 733c38a1f269ed4b177f9e531a77dc5970839c03
         Intent intent = getActivity().getIntent().getExtras().getString(mainMessage); //broken
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
