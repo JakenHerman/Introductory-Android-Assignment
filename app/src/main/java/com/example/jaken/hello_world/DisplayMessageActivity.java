@@ -63,7 +63,9 @@ public class DisplayMessageActivity extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        Intent intent = getActivity().getIntent().getExtras().getString(mainMessage);
+
+        //cannot resolve symbol mainMessage - how to call MainActivity.java?
+        Intent intent = getActivity().getIntent().getExtras().getString(mainMessage); //broken
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         //create the text view

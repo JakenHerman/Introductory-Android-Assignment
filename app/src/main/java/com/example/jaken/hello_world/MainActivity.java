@@ -1,6 +1,8 @@
 package com.example.jaken.hello_world;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,13 +12,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.EditText;
+import android.app.FragmentManager;
+import android.os.Bundle;
 import android.os.Build;
 
 
 
-
 public class MainActivity extends Activity {
+
+    Fragment fragment;
+    Button button;
     public final static String EXTRA_MESSAGE = "com.example.Hello-world.MESSAGE";
 
     @Override
@@ -25,10 +32,22 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new ArticleFragment())
                     .commit();
         }
-    }
+
+        button = (Button)findViewById(R.id.buttonMain);
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        ArticleFragment af = new ArticleFragment();
+        ft.add(R.id.af, af);
+        ft.commit();
+
+
+        }
+
 
 
     @Override
@@ -50,21 +69,6 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
 
     //Called when the user clicks the Send button created in fragment_main.xml/
     public void sendMessage(View view) {
@@ -76,3 +80,5 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 }
+
+

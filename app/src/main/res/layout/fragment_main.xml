@@ -10,8 +10,21 @@
         android:layout_height="wrap_content"
         android:hint="@string/edit_message" />
     <Button
+        android:id="@+id/buttonMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_send"
         android:onClick="sendMessage"/>
+
+
+    <fragment android:name="com.example.jaken.hello_world.ArticleFragment"
+        android:id="@+id/af"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_main" />
+
+
+
+
 </LinearLayout>
